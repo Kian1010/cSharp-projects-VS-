@@ -1,0 +1,104 @@
+CREATE DATABASE MyBusiness;
+GO
+USE MyBusiness;
+
+GO
+
+CREATE TABLE
+Departments
+(
+DeptNo int NOT NULL PRIMARY KEY,
+DeptName varchar(40) NOT NULL
+);
+
+GO
+
+CREATE TABLE
+Jobs
+(
+JobID varchar(20) NOT NULL PRIMARY KEY,
+Field varchar(40),
+MinSal decimal(19,4),
+MaxSal decimal(19,4)
+);
+
+GO
+
+CREATE TABLE 
+Employees
+(
+EmpID int NOT NULL PRIMARY KEY,
+FirstName varchar(255),
+LastName varchar(255),
+Phone varchar(10),
+Hiredate date,
+Sal decimal(19,4),
+DeptNo int NOT NULL FOREIGN KEY
+REFERENCES Departments(DeptNo),
+JobID varchar(20) NOT NULL FOREIGN KEY
+REFERENCES Jobs(JobID),
+);
+GO
+
+CREATE TABLE
+Locations
+(
+[Location] int NOT NULL PRIMARY KEY,
+DeptNo int NOT NULL FOREIGN KEY
+REFERENCES Departments(DeptNo)
+);
+GO
+
+INSERT INTO DEPARTMENTS(DeptNo,DeptName)
+VALUES 
+(20,'Marketing'),
+(40,'Accounting'),
+(60,'HR'),
+(80,'Legal Department'),
+(100,'IT'),
+(120,'Research');
+
+GO
+
+INSERT INTO Jobs (JobID,Field,MinSal,MaxSal)
+VALUES
+('M1','Sales rep',4500,8000),
+('ACC1','Accountant',6000,12000),
+('HR1','HR consultant',5000,13000),
+('LDept1','Attorneys',10000,25000),
+('RSH1','Product developer',6000,14000),
+('M2','Telemarketer',3500,6000),
+('ACC2','Finance manager',9000,15000),
+('HR2','HR admin',12000,19000),
+('LDept2','Prosecutors',12000,25000),
+('RSH2','Tester',2000,4000);
+
+GO
+INSERT INTO Employees (EmpID,FirstName,LastName,Phone,Hiredate,Sal,DeptNo,JobID)
+VALUES
+(1,'Kevin','Mitch','0849998689','1975-12-01',6000,20,'M1'),
+(2,'Andrew','Malcom','0742222229','1985-05-01',15000,80,'LDept1'),
+(3,'Kevin','Newis','0881892837','2001-01-01',2200,120,'RSH2'),
+(4,'Steven','Stone','0982839109','1995-06-01',15000,60,'HR2'),
+(5,'William','Smith','0817654320','1969-08-01',24000,80,'LDept2'),
+(6,'Sarah','Philips','0877890987','1999-08-01',12000,40,'ACC1'),
+(7,'Maria','Blythe','0811829394','2008-06-01',10000,40,'ACC1'),
+(8,'Branden','Pillay','0987654321','2014-09-01',7000,20,'M1'),
+(9,'Travis','Scott','0848924873','1982-05-01',13000,120,'RSH1'),
+(10,'Jessob','Benassi','0818101820','1995-03-01',8500,60,'HR1'),
+(11,'Melanie','Melborne','0845554443','1982-10-01',20000,80,'LDept1'),
+(12,'Mavis','Gould','0747894758', '2015-12-01',5000,20,'M2'),
+(13,'Alice','Tessie','0981829384','2005-06-01',12000,40,'ACC2'),
+(14,'Lucian','Katharyn','0889992221','2010-03-01',2500,120,'RSH2'),
+(131,'Megan','Chang','0987654567','2012-02-01',17000,80,'LDept1');
+
+GO
+
+INSERT INTO Locations ([Location],DeptNo)
+VALUES
+(1500,'60'),
+(1600,'20'),
+(1700,'80'),
+(1800,'120'),
+(1900,'40'),
+(2000,'100');

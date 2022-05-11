@@ -1,0 +1,88 @@
+USE MyBusiness;
+GO
+
+--Request 1
+SELECT LastName,FirstName,EmpID FROM Employees WHERE LastName LIKE 'M%';
+
+--Request 2
+SELECT e.DeptNo,e.LastName,e.FirstName,e.Phone FROM Employees AS [e] 
+INNER JOIN Jobs AS [j] ON e.JobID = j.JobID
+WHERE (j.Field = 'Sales rep') AND (e.Hiredate<='1998-03-24') ORDER BY e.LastName; 
+
+--Request 3
+SELECT * FROM Jobs WHERE MinSal <= 4500 ORDER BY MinSal DESC;
+
+--Request 4
+SELECT Field AS [Job] FROM Jobs AS [j] INNER JOIN Employees AS [e] ON j.JobID = e.JobID 
+WHERE (e.DeptNo = 20) OR (e.DeptNo = 40)
+GROUP BY Field;
+
+--Request 5
+SELECT d.DeptName,l.[Location],e.LastName,e.Sal FROM Employees AS [e] INNER JOIN Departments AS [d]
+ON e.DeptNo=d.DeptNo INNER JOIN Locations AS [l] ON l.DeptNo=d.DeptNo
+WHERE [Location] = '1700' ORDER BY DeptName; 
+
+--Request 6
+SELECT LastName,FirstName FROM Employees WHERE (Month(Hiredate)=6) OR (Month(Hiredate)=8) ORDER BY LastName;
+
+--Request 7
+SELECT FORMAT(AVG(Sal),'R00.00') AS [Average Annual Salary] FROM Employees;
+
+--Request 8
+SELECT FLOOR(Sal/12) AS [MonthlySalary] FROM Employees WHERE (DeptNo = 80) OR (DeptNo= 60);
+
+--Request 9
+SELECT d.DeptNo,d.DeptName,Count(e.EmpID) AS [NumEmployees] FROM Departments AS [d] 
+INNER JOIN Employees AS [e] ON d.DeptNo=e.DeptNo
+GROUP BY d.DeptNo,d.DeptName HAVING Count(e.EmpID) < 4;
+
+--Request 10
+SELECT TOP(1) d.DeptNo,d.DeptName,Count(e.EmpID) AS [NumEmployees] FROM Departments AS [d] 
+INNER JOIN Employees AS [e] ON d.DeptNo=e.DeptNo
+GROUP BY d.DeptNo,d.DeptName 
+ORDER BY NumEmployees;
+
+--Request 11
+SELECT DeptNo,DeptName FROM Departments
+WHERE DeptName <> 'Marketing';
+
+--Request 12
+INSERT INTO Jobs(JobID,Field,MinSal,MaxSal)
+VALUES
+('IT_ASST', 'IT Assistant', 5000, 8000 );
+
+--Request 13
+UPDATE Jobs SET MinSal = MinSal+500;
+
+--Request 14
+SELECT * FROM Jobs ORDER BY JobID;
+
+--Request 17
+CREATE TABLE Job_History
+(
+JobID varchar(20) NOT NULL PRIMARY KEY,
+Field varchar(40),
+MinSal decimal(19,4),
+MaxSal decimal(19,4)
+);
+GO
+DROP TABLE Job_History;
+
+--Request 18
+CREATE TABLE Sal_History
+(
+EmpID int NOT NULL PRIMARY KEY,
+FirstName varchar(255),
+LastName varchar(255),
+HireDate date,
+Sal decimal(19,4)
+);
+
+--Request 19
+INSERT INTO Sal_History
+SELECT EmpID,FirstName,LastName,Hiredate,Sal FROM Employees
+WHERE EmpID <= 130;
+
+--Request 20
+SELECT * FROM Sal_History;
+
