@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Top Ten Products</title>
+        <meta name="description" content="top products">  
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a  href="home.html">HOME</a></li>
+                    <li><a  href="toptengames.html">TOP GAMES</a></li>
+                    <li><a class="active" href="toptenproducts.html">TOP PRODUCTS</a></li>
+                    <li><a  href="aboutus.html">ABOUT US</a></li>
+                    <li><a href="contactus.html">CONTACT US</a></li>
+                </ul>
+             </nav>
+            </div>
+
+         <div class="top-products">
+             <ul >
+                 <li>Best CPUs</li>
+                 <img src="cpu - AMD Ryzen 5 3600X(R5089).jpg">
+                 <br>
+                    <p>The AMD Ryzen 5 3600X is a top tier cpu made for gaming,<br>
+                     the price for this cpu is R5089
+                 </p>
+                 <img src="cpu - Intel Core i9 10700K(R8460).jpg">
+                 <p>The Intel Core i9 10700K is the best overall cpu and the latest generation of the 
+                     intel cpu. <br>The price for this cpu is aproximately R8460
+                 </p>
+                 <li>Best HDD</li>
+                 <img src="hdd - Seagate FireCuda(R3000).jpg">
+                 <p>The best hdd that has 2TB space and is relatievly cheap. <br>The price 
+                     for the Seagate FireCuda is R3000.
+                 </p>
+                 <li>Best SSD</li>
+                 <img src="ssd - Addlink S70(R2200).webp">
+                 <p>The best ssd we have on market is the Addlink S70 <br>which will cost
+                     around R2200 to make your device super fast if it relies on hdd to boot up.
+                 </p>
+                 <li>Best Graphics Card</li>
+                 <img src="graphics card - Nvidia GeForce RTX 3070(R15500).png">
+                 <p>Arguably the best graphics card by a landslide, the Nvidia GeForce RTX 3070
+                     is leaps ahead of any other graphics card. <br>Performance does come with cost though, <br>
+                     so this graphics card will set you back by R15 500.
+                 </p>
+                 <li>Best UPS</li>
+                 <img src="ups - Cyberpower CP1500PFCLCD(R3500).jpg">
+                 <p>Our most reliable uninterruptible power supply for when there is an emergency<br> and you need to 
+                     save your work before the power cuts.<br> The Cyberpower CP1500PFCLCD does its job to perfection<br> 
+                     and will cost around R3500 for lifetime reliance.
+                 </p>
+                 <li>Best Keyboard</li>
+                 <img src="keyboard - Roccat Vulcan 120 Aimo(R2500).webp">
+                 <p>The most ergonomic and safe to use keyboard has to be the Roccat Vulcan 120 Aimo<br> with
+                     its slick cool modern design combined with a satisfying way of pressing keys.<br> This 
+                     keyboard is the best in the market in all aspects. <br> Our specilized discounted price for 
+                     this amazing keyboard is now at the price of R2500
+                 </p>
+                 <li>Best Mouse</li>
+                 <img src="mouse - Razer Basilisk Ultimate(R2800).jpg">
+                 <p>The most reliable mouse especially for gaming where precise input is needed, <br> the 
+                    Razer Basilisk Ultimate provides the best in terms of everything thus far. 
+                    <br> The price is roughly R2800
+                 </p>
+                 <li>Best Fan</li>
+                 <img src="fan(R2500).jfif">
+                 <p>We all hate noisy computer fans especially when we are trying to do work <br> 
+                    that requires concentration.<br> 
+                     Even some fans fail to stop the overheating of the cpu <br> 
+                     thus we have searched for the best fan for you. <br>
+                     This fan will cost you R2500
+                 </p>
+                 <li>Best Case</li>
+                 <img src="pc case(R1000).jpg">
+                 <p>This case was made by our company specifically to fit in all the components above. <br>
+                    This ensures you not only have the best parts for your computer but also enough space<br>
+                    in the case for further upgrade options as our top product list slowly grows over time.
+                </p>
+             </ul>
+         </div>
+
+
+
+         <div class="products-section">
+         <section>
+
+            <b>Your details:</b> </h4>
+        <p>Name: 
+          <input type="text" name="Name" size=30 class="txtbx" id="name">
+        </p>
+        <p>Email Address: 
+          <input type="text" size=30 name="Email" class="txtbx">
+        </p>
+
+             <p>Please select the products and your reaction to it: </p>
+             <br>
+             <p>  
+                <input type="checkbox" name="chkbx" value="yes"> 
+                cpu<br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                hdd<br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                ssd<br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                graphics card<br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                ups<br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                keyboard <br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                mouse <br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                fan <br>
+                <input type="checkbox" name="chkbx" value="yes"> 
+                case<br>
+             </p>
+
+             <p>Tell us what you think of the following products here:<br>
+                <textarea rows=4 cols=60 name="productInfo" id="productTxt"></textarea>
+              </p>
+
+             <p>
+                 press 
+                 <button type="submit" class="clear" onclick="submit()" >submit</button>
+          and your request will be processed or 
+          <button onclick="clearall()" type="reset">reset</button>
+          to start again. <br>
+             </p>
+
+             <label id="submitData"></label>
+
+         </section>
+        </div>
+
+
+         <footer class="main-footer">
+            <h3>Contact us below</h3>
+            <ul>
+                <li> <a href="https://google.com/search?q=Facebook" target="_blank">
+                    <img src="facebook.png"> 
+                </a> 
+                </li>
+                <li> <a href="https://google.com/search?q=Instagram" target="_blank">
+                    <img src="instagram.png"> 
+                </a> 
+                </li>
+
+            </li>
+            <li> <a href="https://google.com/search?q=Twitter" target="_blank">
+                <img src="twitter.png"> 
+            </a> 
+            </li>
+
+        </li>
+        <li> <a href="https://google.com/search?q=Youtube" target="_blank">
+            <img src="youtube_2.png"> 
+        </a> 
+        </li>
+            </ul>
+        </footer>
+
+
+        <script src="myjs.js"></script>
+    </body>
+
+
+</html>
